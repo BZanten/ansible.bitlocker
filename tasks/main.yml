@@ -21,6 +21,8 @@
 
 - win_tpm_facts:
 
+- win_bitlocker_facts:
+
 - name: 'Windows : Bitlocker Enabled'
   win_bitlocker:
     mount: 'C:'
