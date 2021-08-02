@@ -25,8 +25,10 @@
 
 - name: 'Windows : Bitlocker Enabled'
   win_bitlocker:
-    mount: 'C:'
-    state: enabled
-    encryption:
-    keyprotector: RecoveryPasswordProtector
+    mount: '{{ bitlocker_mount }}'
+    state: '{{ bitlocker_state }}'
+    encryption: '{{ bitlocker_encryption }}'
+    keyprotector: '{{ bitlocker_keyprotector }}'
   when: ansible_tpm.TpmPresent
+
+...

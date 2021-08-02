@@ -1,2 +1,8 @@
 ---
 # defaults file for itigoag.bitlocker
+
+bitlocker_mount: 'C:'
+bitlocker_state: enabled
+bitlocker_encryption: XtsAes256
+bitlocker_keyprotector: RecoveryPasswordProtector
+
