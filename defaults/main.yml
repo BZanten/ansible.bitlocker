@@ -1,5 +1,5 @@
 ---
-# defaults file for itigoag.bitlocker
+# defaults file for ansible.bitlocker
 
 bitlocker_mount: 'C:'
 bitlocker_state: enabled

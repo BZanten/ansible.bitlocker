@@ -4,20 +4,28 @@
 
 ## Description
 
+Enables BitLocker on your Windows machine.
+
 ## Installation
 
 ```bash
-ansible-galaxy install itigoag.bitlocker
+ansible-galaxy install ansible.bitlocker
 ```
 
 ## Requirements
+* Windows
+  * Windows 8 or higher (tested on Windows 10),
+  * Windows Server 2012 or higher.
+* TPM module 1.2 or higher
 
 ## Role Variables
 
 | Variable             | Default     | Comments (type)                                   |
 | :---                 | :---        | :---                                              |
-| | | |
-| | | |
+| bitlocker_mount | C: | The mountpoint (driveletter) of the volume to encrypt |
+| bitlocker_state | enabled | enabled or disabled |
+| bitlocker_encryption | XtsAes256 | encryption algorithm |
+| bitlocker_keyprotector | RecoveryPasswordProtector | Key protector to use: RecoveryPasswordProtector or TpmProtector |
 
 ## Dependencies
 
@@ -26,10 +34,13 @@ ansible-galaxy install itigoag.bitlocker
 ```yml
 - hosts: all
   roles:
-     - itigoag.bitlocker
+     - ansible.bitlocker
 ```
 
 ## Changelog
+* 1.0 Simon Bärlocher; Initial version
+* 2.0 Evi Vanoost; added BitLocker facts
+* 3.0 Ben van Zanten; moved values to vars, allow multiple volumes to be BitLockered
 
 ## Author
 
@@ -42,3 +53,4 @@ This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/lice
 ## Copyright
 
 (c) 2019, Simon Bärlocher
+(c) 2020, Evi Vanoost

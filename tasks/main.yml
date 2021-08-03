@@ -1,5 +1,5 @@
 ---
-# tasks file for itigoag.bitlocker
+# tasks file for ansible.bitlocker
 
 - name: add OS specific variables
   include_vars: '{{ loop_vars }}'
