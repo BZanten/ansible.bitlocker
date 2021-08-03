@@ -19,7 +19,7 @@ $result = @{
     }
 }
 
-$result.ansible_facts.ansible_tpm = get-tpm
+$result.ansible_facts.ansible_tpm = Get-Tpm
 
 # Return result
 Exit-Json -obj $result

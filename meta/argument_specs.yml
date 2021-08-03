@@ -1,0 +1,69 @@
+---
+
+argument_specs:
+  # roles/role_BitLocker/tasks/main.yml entry point
+  main:
+    short_description: Enables BitLocker Full Volume Encryption on local drives
+    options:
+      bitlocker_mount:
+        type: "str"
+        required: true
+        description: "The volume to encrypt, use 'C:' for operating system volume, 'All' to encrypt all volumes, 'Data' for all volumes except the Operating System volume"
+        choices:
+        - "C:"
+        - "D:"
+        - "E:"
+        - "F:"
+        - "G:"
+        - "H:"
+        - "I:"
+        - "J:"
+        - "K:"
+        - "L:"
+        - "M:"
+        - "N:"
+        - "O:"
+        - "P:"
+        - "Q:"
+        - "R:"
+        - "S:"
+        - "T:"
+        - "U:"
+        - "V:"
+        - "W:"
+        - "X:"
+        - "Y:"
+        - "Z:"
+        - "All"
+        - "Data"
+        - "OS"
+
+      bitlocker_state:
+        type: "str"
+        required: false
+        default: 'enabled'
+        choices:
+          - enabled
+          - disabled
+        description: "Specify to enable or disable BitLocker on the volumes"
+
+      bitlocker_encryption:
+        type: "str"
+        required: false
+        choices:
+          - "Aes128"
+          - "Aes256"
+          - "XtsAes128"
+          - "XtsAes256"
+        description: "Encryption method"
+
+      bitlocker_keyprotector:
+        type: "str"
+        required: false
+        default: "RecoveryPasswordProtector"
+        choices:
+        - RecoveryPasswordProtector
+        - TpmProtector
+        description: "The key protector to use for initial enabling of BitLocker on a volume. You can add additional key protectors later"
+
+...
