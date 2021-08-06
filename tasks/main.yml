@@ -23,12 +23,16 @@
 
 - win_bitlocker_facts:
 
-- name: 'Windows : Bitlocker Enabled'
+- name: Configure BitLocker
   win_bitlocker:
     mount: '{{ bitlocker_mount }}'
     state: '{{ bitlocker_state }}'
     encryption: '{{ bitlocker_encryption }}'
     keyprotector: '{{ bitlocker_keyprotector }}'
+    backup_to_ad: '{{ bitlocker_backup_to_ad }}'
+    hardware_encryption: '{{ bitlocker_hardware_encryption }}'
+    skip_hardware_test: '{{ bitlocker_skip_hardware_test }}'
+    used_space_only: '{{ bitlocker_used_space_only }}'
   when: ansible_tpm.TpmPresent
 
 ...

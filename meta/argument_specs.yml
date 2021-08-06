@@ -3,7 +3,7 @@
 argument_specs:
   # roles/role_BitLocker/tasks/main.yml entry point
   main:
-    short_description: Enables BitLocker Full Volume Encryption on local drives
+    short_description: Enables BitLocker (Full Volume Encryption) on local drives
     options:
       bitlocker_mount:
         type: "str"
@@ -41,7 +41,7 @@ argument_specs:
       bitlocker_state:
         type: "str"
         required: false
-        default: 'enabled'
+        default: "enabled"
         choices:
           - enabled
           - disabled
@@ -65,5 +65,29 @@ argument_specs:
         - RecoveryPasswordProtector
         - TpmProtector
         description: "The key protector to use for initial enabling of BitLocker on a volume. You can add additional key protectors later"
+
+      bitlocker_backup_to_ad:
+        type: "bool"
+        required: false
+        default: false
+        description: "If set, tries to backup the Recovery Key protectors to AD for AD-Joined machines or to Azure AD for AAD joined/registered devices"
+
+      bitlocker_hardware_encryption:
+        type: "bool"
+        required: false
+        default: false
+        description: "Indicates that the volume uses hardware encryption."
+
+      bitlocker_skip_hardware_test:
+        type: "bool"
+        required: false
+        default: false
+        description: "Indicates that BitLocker does not perform a hardware test before it begins encryption. BitLocker uses a hardware test as a dry run to make sure that all the key protectors are correctly set up and that the computer can start without issues."
+
+      bitlocker_used_space_only:
+        type: "bool"
+        required: false
+        default: false
+        description: "Indicates that BitLocker does not encrypt disk space which contains unused data."
 
 ...

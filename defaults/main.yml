@@ -5,4 +5,7 @@ bitlocker_mount: 'C:'
 bitlocker_state: enabled
 bitlocker_encryption: XtsAes256
 bitlocker_keyprotector: RecoveryPasswordProtector
-
+bitlocker_backup_to_ad: false
+bitlocker_hardware_encryption: false
+bitlocker_skip_hardware_test: false
+bitlocker_used_space_only: false
