@@ -2,6 +2,7 @@
 
 # Copyright: (c) 2019, Simon Baerlocher <s.baerlocher@sbaerlocher.ch>
 # Copyright: (c) 2019, ITIGO AG <opensource@itigo.ch>
+# Copyright: (c) 2021, Striveworks Inc.
 # GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
 
 #AnsibleRequires -CSharpUtil Ansible.Basic
@@ -34,9 +35,9 @@ $keyprotector = $module.Params.keyprotector
 $backup2AD    = $module.Params.backup_to_ad
 # Create hashtables for parameter splatting of several other optional parameters, later
 if ([string]::IsNullOrEmpty($module.Params.encryption)) { $encryptionParam=@{} } else { $encryptionParam=@{'EncryptionMethod'=$module.Params.encryption} }
-if ([Boolean]$module.Params.hardware_encryption) { $hardwareEncrParam=@{}     } else { $hardwareEncrParam=@{'HardwareEncryption'=$True} }
-if ([Boolean]$module.Params.skip_hardware_test)  { $skipHardwareTestParam=@{} } else { $skipHardwareTestParam=@{'SkipHardwareTest'=$True} }
-if ([Boolean]$module.Params.used_space_only)     { $usedSpaceOnlyParam=@{}    } else { $usedSpaceOnlyParam=@{'UsedSpaceOnly'=$True} }
+$hardwareEncrParam=@{'HardwareEncryption'=[Boolean]$module.Params.hardware_encryption}
+$skipHardwareTestParam=@{'SkipHardwareTest'=[Boolean]$module.Params.skip_hardware_test}
+$usedSpaceOnlyParam=@{'UsedSpaceOnly'=[Boolean]$module.Params.used_space_only}
 
 # Create a new result object
 $ret = @{

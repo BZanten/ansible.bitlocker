@@ -81,3 +81,4 @@ This project is under the MIT License. See the [LICENSE](https://sbaerlo.ch/lice
 * (c) 2019, Simon Bärlocher
 * (c) 2020, Evi Vanoost
 * (c) 2021, Ben van Zanten
+* (c) 2021, Striveworks Inc.
